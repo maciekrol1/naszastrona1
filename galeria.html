@@ -5,15 +5,28 @@
   <title>Nasza Galeria</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    /* Styl dla galerii */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Układ siatki */
       gap: 10px;
+      padding: 10px;
     }
+
+    /* Styl dla pojedynczego zdjęcia */
     .gallery img {
       width: 100%;
+      height: auto;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styl dla podpisu zdjęcia */
+    .caption {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-top: 5px;
     }
   </style>
 </head>
@@ -21,19 +34,53 @@
   <h1>📸Nasza Galeria Zdjęć📸</h1>
   
   <div class="gallery">
-    <img src="img/FullSizeRender.jpeg" alt="We Włoszech">
-    <img src="img/bam.jpeg" alt="We Włoszech 2">
-    <img src="img/IMG_6207.jpeg" alt="Na 18">
-    <img src="img/IMG_2753.jpeg" alt="Ze słodziaczkiem na łyżwach">
-    <img src="img/beng.jpeg" alt="fit check">
-    <img src="img/IMG_2323.jpeg" alt="Studnióweczka">
-    <img src="img/IMG_9201.jpeg" alt="2 bossy">
-    <img src="img/IMG_2966.jpeg" alt="Ze słodziaczkiem na sushi">
-    <img src="img/IMG_3620.jpeg" alt="A tutaj na chińczyku">
-    <img src="img/IMG_8496.jpeg" alt="słodziaczek z cool oksami">
-    <img src="img/IMG_1378.jpeg" alt="słodziak w szoku">
-    
-    
+    <div class="gallery-item">
+      <img src="img/FullSizeRender.jpeg" alt="My we Włoszech">
+      <div class="caption">My we Włoszech</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="img/bam.jpeg" alt="My we Włoszech 2">
+      <div class="caption">My we Włoszech 2</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="img/IMG_6207.jpeg" alt="Zdjęcie 3">
+      <div class="caption">Na 18</div>
+    </div>
+    <div class="gallery-item">
+      <img src="img/IMG_2753.jpeg" alt="Zdjęcie 3">
+      <div class="caption">Ze słodziaczkiem na łyżwach</div>
+    </div>
+    <div class="gallery-item">
+      <img src="img/beng.jpeg" alt="Zdjęcie 3">
+      <div class="caption">Fit check</div>
+    </div>
+    <div class="gallery-item">
+      <img src="img/IMG_2323.jpeg" alt="Zdjęcie 3">
+      <div class="caption">Studnióweczka</div>
+    </div>
+    <div class="gallery-item">
+      <img src="img/IMG_9201.jpeg" alt="Zdjęcie 3">
+      <div class="caption">2 bossy</div>
+    </div>
+    <div class="gallery-item">
+      <img src="img/IMG_2966.jpeg" alt="Zdjęcie 3">
+      <div class="caption">Ze słodziaczkiem na sushi</div>
+    </div>
+    <div class="gallery-item">
+      <img src="img/IMG_3620.jpeg" alt="Zdjęcie 3">
+      <div class="caption">A tutaj na chińczyku</div>
+    </div>
+    <div class="gallery-item">
+      <img src="img/IMG_8496.jpeg" alt="Zdjęcie 3">
+      <div class="caption">Słodziaczek z cool oksami</div>
+    </div>
+    <div class="gallery-item">
+      <img src="img/IMG_1378.jpeg.jpeg" alt="Zdjęcie 3">
+      <div class="caption">Słodziak w szoku</div>
+    </div>
+    <!-- Dodaj więcej zdjęć, jeśli chcesz -->
   </div>
 
   <a href="index.html">⬅️ Powrót</a>
