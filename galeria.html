@@ -50,6 +50,12 @@
       height: auto;
     }
 
+    /* Margines górny dla zdjęć pionowych, żeby były niżej */
+    .gallery-item.vertical {
+      margin-top: 50px; /* Daje przestrzeń nad zdjęciem pionowym */
+      grid-column: span 2; /* Rozciąga zdjęcie pionowe na dwie kolumny */
+    }
+
     .gallery img {
       width: 100%;
       height: auto;
@@ -90,11 +96,6 @@
 
     a:hover {
       background-color: #34495e;
-    }
-
-    /* Tylko dla zdjęć pionowych: */
-    .gallery-item.vertical {
-      grid-column: span 2; /* Rozciąga zdjęcie pionowe na dwie kolumny */
     }
 
   </style>
