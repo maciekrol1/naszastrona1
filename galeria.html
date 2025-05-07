@@ -19,18 +19,18 @@
     h1 {
       font-family: 'Georgia', serif;
       font-size: 36px;
-      margin-top: 20px;
+      margin-top: 50px; /* Zwiększenie marginesu dla nagłówka, aby zdjęcia go nie zasłaniały */
       color: #fff; /* Kolor tekstu na tle gradientowym */
     }
 
-    /* Dodajemy margines na górze całej galerii */
+    /* Dodanie marginesu górnego dla galerii */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 20px;
       padding: 20px;
       max-width: 1200px;
-      margin: 60px auto 0 auto; /* Dodano margines górny, by zdjęcia były niżej */
+      margin: 40px auto 0 auto; /* Zmniejszenie marginesu, aby zdjęcia były wyraźnie widoczne */
     }
 
     /* Styl dla pojedynczego zdjęcia */
@@ -42,23 +42,18 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    /* Ramki poziome dla zdjęć pionowych */
-    .vertical img {
-      border-top: 5px solid #2c3e50; /* Górna ramka */
-      border-bottom: 5px solid #2c3e50; /* Dolna ramka */
+    /* Ramki dla zdjęć pionowych */
+    .gallery-item img {
       width: 100%;
       height: auto;
+      border-left: 5px solid #2c3e50; /* Ramka po lewej */
+      border-right: 5px solid #2c3e50; /* Ramka po prawej */
     }
 
-    .gallery img {
-      width: 100%;
-      height: auto;
-      transition: transform 0.3s ease;
-    }
-
-    /* Efekt powiększenia przy najechaniu na zdjęcie */
-    .gallery img:hover {
-      transform: scale(1.1);
+    /* Tylko dla pierwszych dwóch zdjęć (poziome ramki) */
+    .gallery-item.vertical img {
+      border-top: 10px solid #2c3e50; /* Górna ramka */
+      border-bottom: 10px solid #2c3e50; /* Dolna ramka */
     }
 
     /* Styl dla podpisu zdjęcia */
@@ -91,7 +86,6 @@
     a:hover {
       background-color: #34495e;
     }
-
   </style>
 </head>
 <body>
@@ -110,7 +104,7 @@
       <div class="caption">Na 18</div>
     </div>
   
-    <!-- Inne zdjęcia w orientacji poziomej -->
+    <!-- Inne zdjęcia w orientacji poziomej (z pionowymi ramkami) -->
     <div class="gallery-item">
       <img src="img/bam.jpeg" alt="My we Włoszech 2">
       <div class="caption">My we Włoszech 2</div>
@@ -147,7 +141,6 @@
       <img src="img/IMG_1378.jpeg" alt="Zdjęcie 3">
       <div class="caption">Słodziak w szoku</div>
     </div>
-   
   </div>
 
   <a href="index.html">⬅️ Powrót</a>
