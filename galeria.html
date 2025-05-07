@@ -23,14 +23,14 @@
       color: #fff; /* Kolor tekstu na tle gradientowym */
     }
 
-    /* Styl dla galerii */
+    /* Dodajemy margines na górze całej galerii */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 20px;
       padding: 20px;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 60px auto 0 auto; /* Dodano margines górny, by zdjęcia były niżej */
     }
 
     /* Styl dla pojedynczego zdjęcia */
@@ -48,12 +48,6 @@
       border-bottom: 5px solid #2c3e50; /* Dolna ramka */
       width: 100%;
       height: auto;
-    }
-
-    /* Margines górny dla zdjęć pionowych, żeby były niżej */
-    .gallery-item.vertical {
-      margin-top: 50px; /* Daje przestrzeń nad zdjęciem pionowym */
-      grid-column: span 2; /* Rozciąga zdjęcie pionowe na dwie kolumny */
     }
 
     .gallery img {
