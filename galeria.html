@@ -2,11 +2,31 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Galeria</title>
+  <title>Nasza Galeria</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body>
-  <h1>Galeria zdjęć 📸</h1>
+  <h1>📸Nasza Galeria Zdjęć📸</h1>
+  
+  <div class="gallery">
+    <img src="img/gallery1.jpg" alt="Zdjęcie 1">
+    <img src="img/gallery2.jpg" alt="Zdjęcie 2">
+    <img src="img/gallery3.jpg" alt="Zdjęcie 3">
+    
+  </div>
+
   <a href="index.html">⬅️ Powrót</a>
 </body>
 </html>
