@@ -5,9 +5,8 @@
   <title>Nasza Galeria</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Tło całej strony z gradientem */
     body {
-      background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient z różu do pomarańczu */
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
       font-family: 'Arial', sans-serif;
       color: #333;
       margin: 0;
@@ -15,25 +14,25 @@
       text-align: center;
     }
 
-    /* Nagłówek */
     h1 {
       font-family: 'Georgia', serif;
       font-size: 36px;
-      margin-top: 50px; /* Zwiększenie marginesu dla nagłówka, aby zdjęcia go nie zasłaniały */
-      color: #fff; /* Kolor tekstu na tle gradientowym */
+      margin-top: 40px;
+      padding-top: 20px;
+      color: #fff;
+      z-index: 10;
+      position: relative;
     }
 
-    /* Dodanie marginesu górnego dla galerii */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 20px;
       padding: 20px;
       max-width: 1200px;
-      margin: 40px auto 0 auto; /* Zmniejszenie marginesu, aby zdjęcia były wyraźnie widoczne */
+      margin: 0 auto;
     }
 
-    /* Styl dla pojedynczego zdjęcia */
     .gallery-item {
       position: relative;
       background-color: #fff;
@@ -42,41 +41,40 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
+    /* Domyślny styl zdjęcia */
     .gallery-item img {
-  width: 100%;
-  height: auto;
-  border: none; /* Domyślnie brak ramek */
-}
+      width: 100%;
+      height: auto;
+      border: none;
+      transition: transform 0.3s ease;
+    }
 
-/* Domyślnie pionowe ramki */
-.gallery-item:not(.horizontal) img {
-  border-left: 5px solid #2c3e50;
-  border-right: 5px solid #2c3e50;
-}
+    /* Pionowe ramki */
+    .gallery-item:not(.horizontal) img {
+      border-left: 5px solid #2c3e50;
+      border-right: 5px solid #2c3e50;
+    }
 
-/* Tylko dla zdjęć z klasą .horizontal: poziome ramki */
-.gallery-item.horizontal img {
-  border-top: 10px solid #2c3e50;
-  border-bottom: 10px solid #2c3e50;
-}
+    /* Poziome ramki tylko dla .horizontal */
+    .gallery-item.horizontal img {
+      border-top: 10px solid #2c3e50;
+      border-bottom: 10px solid #2c3e50;
+    }
 
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
 
-    /* Styl dla podpisu zdjęcia */
     .caption {
       font-size: 16px;
       color: #333;
       font-weight: bold;
       padding: 10px;
       background-color: rgba(255, 255, 255, 0.8);
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
       text-align: center;
       border-top: 2px solid #2c3e50;
     }
 
-    /* Styl dla przycisku powrotu */
     a {
       display: inline-block;
       margin-top: 20px;
@@ -95,18 +93,20 @@
 </head>
 <body>
   <h1>📸Nasza Galeria Zdjęć📸</h1>
-  
- <div class="gallery-item horizontal">
-  <img src="img/FullSizeRender.jpeg" alt="Zdjęcie 1">
-  <div class="caption">My we Włoszech</div>
-</div>
 
-<div class="gallery-item horizontal">
-  <img src="img/IMG_6207.jpeg" alt="Zdjęcie 2">
-  <div class="caption">Na 18</div>
-</div>
-  
-    <!-- Inne zdjęcia w orientacji poziomej (z pionowymi ramkami) -->
+  <div class="gallery">
+    <!-- Dwa zdjęcia z poziomą ramką -->
+    <div class="gallery-item horizontal">
+      <img src="img/FullSizeRender.jpeg" alt="Zdjęcie 1">
+      <div class="caption">My we Włoszech</div>
+    </div>
+
+    <div class="gallery-item horizontal">
+      <img src="img/IMG_6207.jpeg" alt="Zdjęcie 2">
+      <div class="caption">Na 18</div>
+    </div>
+
+    <!-- Reszta z pionową ramką -->
     <div class="gallery-item">
       <img src="img/bam.jpeg" alt="My we Włoszech 2">
       <div class="caption">My we Włoszech 2</div>
