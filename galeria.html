@@ -42,6 +42,14 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
+    /* Ramki poziome dla zdjęć pionowych */
+    .vertical img {
+      border-top: 5px solid #2c3e50; /* Górna ramka */
+      border-bottom: 5px solid #2c3e50; /* Dolna ramka */
+      width: 100%;
+      height: auto;
+    }
+
     .gallery img {
       width: 100%;
       height: auto;
@@ -83,6 +91,12 @@
     a:hover {
       background-color: #34495e;
     }
+
+    /* Tylko dla zdjęć pionowych: */
+    .gallery-item.vertical {
+      grid-column: span 2; /* Rozciąga zdjęcie pionowe na dwie kolumny */
+    }
+
   </style>
 </head>
 <body>
@@ -101,7 +115,7 @@
       <div class="caption">Na 18</div>
     </div>
   
-
+    <!-- Inne zdjęcia w orientacji poziomej -->
     <div class="gallery-item">
       <img src="img/bam.jpeg" alt="My we Włoszech 2">
       <div class="caption">My we Włoszech 2</div>
