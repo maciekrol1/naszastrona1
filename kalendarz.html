@@ -3,15 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <title>Kalendarz</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ffdada, #ffe7e7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: 80%;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .date {
+      font-size: 48px;
+      font-weight: bold;
+      color: #e74c3c;
+    }
+
+    .description {
+      font-size: 24px;
+      margin-top: 20px;
+      color: #555;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .nav-button:hover {
+      background-color: #c0392b;
+    }
+
+    .prev {
+      left: -70px;
+    }
+
+    .next {
+      right: -70px;
+    }
+
+    @media (max-width: 600px) {
+      .nav-button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        left: 10px;
+        right: 10px;
+      }
+
+      .prev {
+        left: 10px;
+      }
+
+      .next {
+        right: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Ważne daty 📅</h1>
-  <ul>
-    <li><strong>05.05:</strong> Nasza rocznica ❤️</li>
-    <li><strong>14.02:</strong> Walentynki 💕</li>
-    <li><strong>01.09:</strong> Pierwsza randka 🥰</li>
-  </ul>
-  <a href="index.html">⬅️ Powrót</a>
+
+  <div class="slide-container">
+    <div class="date" id="date">27.02.2023</div>
+    <div class="description" id="description">Pierwsze wiadomości 💌</div>
+
+    <button class="nav-button prev" onclick="prevSlide()">←</button>
+    <button class="nav-button next" onclick="nextSlide()">→</button>
+  </div>
+
+  <script>
+    const slides = [
+      { date: "27.02.2023", description: "Pierwsza wiadomość 💌" },
+      { date: "05.05.2023", description: "Nasza rocznica ❤️" },
+      { date: "16.08.2023", description: "Pierwszy wyjazd razem 🌅" },
+      { date: "05.08.2024", description: "Wyjazd do Włoch ✨" }
+    ];
+
+    let currentIndex = 0;
+    const dateEl = document.getElementById('date');
+    const descEl = document.getElementById('description');
+
+    function updateSlide() {
+      dateEl.textContent = slides[currentIndex].date;
+      descEl.textContent = slides[currentIndex].description;
+    }
+
+    function nextSlide() {
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlide();
+      }
+    }
+  </script>
+
 </body>
 </html>
