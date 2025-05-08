@@ -23,12 +23,34 @@
       background: white;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 40px 20px;
+      transition: left 0.5s ease;
+    }
+
+    .slide.active {
+      left: 0;
+    }
+
+    .slide.exit-left {
+      left: -100%;
+    }
+
+    .slide.exit-right {
+      left: 100%;
     }
 
     .date {
@@ -56,6 +78,7 @@
       font-size: 24px;
       cursor: pointer;
       transition: background-color 0.3s;
+      z-index: 2;
     }
 
     .nav-button:hover {
@@ -75,8 +98,6 @@
         width: 40px;
         height: 40px;
         font-size: 20px;
-        left: 10px;
-        right: 10px;
       }
 
       .prev {
@@ -91,44 +112,84 @@
 </head>
 <body>
 
-  <div class="slide-container">
-    <div class="date" id="date">27.02.2023</div>
-    <div class="description" id="description">Pierwsze wiadomości 💌</div>
-
-    <button class="nav-button prev" onclick="prevSlide()">←</button>
-    <button class="nav-button next" onclick="nextSlide()">→</button>
+  <div class="slide-container" id="slider">
+    <!-- Slides will be injected here -->
   </div>
 
+  <button class="nav-button prev" onclick="prevSlide()">←</button>
+  <button class="nav-button next" onclick="nextSlide()">→</button>
+
   <script>
-    const slides = [
-      { date: "27.02.2023", description: "Pierwsza wiadomość 💌" },
+    const slidesData = [
+      { date: "27.02.2023", description: "Pierwsze wiadomości 💌" },
       { date: "05.05.2023", description: "Nasza rocznica ❤️" },
       { date: "16.08.2023", description: "Pierwszy wyjazd razem 🌅" },
-      { date: "05.08.2024", description: "Wyjazd do Włoch ✨" }
+      { date: "05.08.2024", description: "Magiczny dzień ✨" }
     ];
 
     let currentIndex = 0;
-    const dateEl = document.getElementById('date');
-    const descEl = document.getElementById('description');
+    const slider = document.getElementById('slider');
 
-    function updateSlide() {
-      dateEl.textContent = slides[currentIndex].date;
-      descEl.textContent = slides[currentIndex].description;
+    function createSlide(index) {
+      const slide = document.createElement('div');
+      slide.classList.add('slide');
+      if (index === currentIndex) slide.classList.add('active');
+
+      slide.innerHTML = `
+        <div class="date">${slidesData[index].date}</div>
+        <div class="description">${slidesData[index].description}</div>
+      `;
+      slider.appendChild(slide);
+    }
+
+    function showSlide(newIndex, direction) {
+      if (newIndex < 0 || newIndex >= slidesData.length || newIndex === currentIndex) return;
+
+      const currentSlide = slider.querySelector('.slide.active');
+      const nextSlide = document.createElement('div');
+      nextSlide.className = 'slide';
+      nextSlide.innerHTML = `
+        <div class="date">${slidesData[newIndex].date}</div>
+        <div class="description">${slidesData[newIndex].description}</div>
+      `;
+      slider.appendChild(nextSlide);
+
+      // Trigger animation
+      requestAnimationFrame(() => {
+        if (direction === 'next') {
+          nextSlide.style.left = '100%';
+          requestAnimationFrame(() => {
+            nextSlide.classList.add('active');
+            nextSlide.style.left = '0';
+            currentSlide.classList.add('exit-left');
+          });
+        } else {
+          nextSlide.style.left = '-100%';
+          requestAnimationFrame(() => {
+            nextSlide.classList.add('active');
+            nextSlide.style.left = '0';
+            currentSlide.classList.add('exit-right');
+          });
+        }
+
+        setTimeout(() => {
+          slider.removeChild(currentSlide);
+        }, 500);
+      });
+
+      currentIndex = newIndex;
     }
 
     function nextSlide() {
-      if (currentIndex < slides.length - 1) {
-        currentIndex++;
-        updateSlide();
-      }
+      showSlide(currentIndex + 1, 'next');
     }
 
     function prevSlide() {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateSlide();
-      }
+      showSlide(currentIndex - 1, 'prev');
     }
+
+    // Initial slide
+    createSlide(currentIndex);
   </script>
 
 </body>
