@@ -4,19 +4,71 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dla Nas ❤️</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fdeef2; /* pastelowy róż */
+      background-image: url('img/f2bee413-ddbd-4404-84d4-f94decbbe918.jpg'); /* tło z serduszkami */
+      background-size: contain;
+      background-repeat: repeat;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .background-date {
+      font-size: 64px;
+      font-weight: bold;
+      color: #d6336c;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .icon-container {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .icon-container a img {
+      width: 100px;
+      height: 100px;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+    }
+
+    .icon-container a img:hover {
+      transform: scale(1.15);
+    }
+
+    @media (max-width: 600px) {
+      .background-date {
+        font-size: 48px;
+      }
+
+      .icon-container a img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="background-date">05.05</div>
   <div class="icon-container">
     <a href="galeria.html">
-      <img src="img/gallery.png" alt="Galeria" class="icon" />
+      <img src="img/camera.png" alt="Galeria" />
     </a>
     <a href="kalendarz.html">
-      <img src="img/calendar.png" alt="Kalendarz" class="icon" />
+      <img src="img/calendar.png" alt="Kalendarz" />
     </a>
     <a href="muzyka.html">
-      <img src="img/music.png" alt="Muzyka" class="icon" />
+      <img src="img/music.png" alt="Muzyka" />
     </a>
   </div>
 </body>
