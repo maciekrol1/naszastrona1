@@ -3,22 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <title>Muzyka</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #e6f7ff);
+      background-image: url('https://www.transparenttextures.com/patterns/hearts.png'); /* delikatne serduszka */
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: #b30059;
+      margin-bottom: 20px;
+    }
+
+    button {
+      font-size: 22px;
+      padding: 14px 30px;
+      background: linear-gradient(to right, #ff6699, #ff3366);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #ff3366, #cc0052);
+      transform: scale(1.05);
+    }
+
+    .result {
+      margin-top: 30px;
+      font-size: 24px;
+      color: #2c3e50;
+      min-height: 60px;
+    }
+
+    .yt-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 18px;
+      color: white;
+      background-color: #e60000;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .yt-link:hover {
+      background-color: #990000;
+    }
+
+    a.back {
+      margin-top: 50px;
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #2c3e50;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    a.back:hover {
+      background-color: #1a242f;
+    }
+  </style>
 </head>
 <body>
-  <h1>Nasza muzyka 🎶</h1>
-  <p>Tu znajdziesz naszą playlistę!</p>
+  <h1>Wylosuj czego posłuchasz 🎧</h1>
+  <button onclick="losuj()">🎶 Losuj!</button>
+  <div class="result" id="wynik"></div>
 
-  <p><strong>Ulubione utwory:</strong></p>
-  <ul>
-    <li>"Perfect" - Ed Sheeran 🎵</li>
-    <li>"All of Me" - John Legend 🎶</li>
-    <li>"I Will Always Love You" - Whitney Houston 💖</li>
-  </ul>
+  <a class="back" href="index.html">⬅️ Powrót</a>
 
-  <p>Możesz też posłuchać:</p>
-  <!-- Możesz tutaj dodać odtwarzacz np. z YouTube czy Spotify -->
-  
-  <a href="index.html">⬅️ Powrót</a>
+  <script>
+    const utwory = [
+      { tytul: "Congratulations - Mac Miller", link: "https://open.spotify.com/track/1OubIZ0ARYCUq5kceYUQiO?si=4646130ee46c4937" },
+      { tytul: "It Ain't Safe - Skepta ", link: "https://open.spotify.com/track/26DdCbuwHRX1BgWeHQIn1C?si=60b6062ce38a4092" },
+      { tytul: "Smack That – Akon", link: "https://open.spotify.com/track/2kQuhkFX7uSVepCD3h29g5?si=bbdcb9316bb84a81" },
+      { tytul: "Sexoholik – Żabson", link: "https://open.spotify.com/track/6mP31FqR4ZJzyrb4wVYuM5?si=9c73d39b39d344d3" },
+      { tytul: "Beno! – Playboi Carti", link: "https://open.spotify.com/track/4CYTQpr2jc4uBScYvpEK2w?si=468c48fe56804557" },
+      { tytul: "Meh – Playboi Carti", link: "https://open.spotify.com/track/15JRvf02KKGHKgC31jrpuh?si=97bbe16e9a264dd9" },
+      { tytul: "Low Life – Future", link: "https://open.spotify.com/track/7EiZI6JVHllARrX9PUvAdX?si=ef032a88032f4cc9" },
+      { tytul: "Teen X – Playboi Carti", link: "https://open.spotify.com/track/5uYqmEN6TAAE8ss8YmprNV?si=47f71e55ce184aa9" },
+      { tytul: "Nightcrawler – Travis Scott", link: "https://open.spotify.com/track/3xby7fOyqmeON8jsnom0AT?si=a9415421e19b47ab" },
+      { tytul: "ALL MINE – Brent Faiyaz", link: "https://open.spotify.com/track/3XgGQ1wjo5khvq2UImjyNF?si=25fe93b7ff1a4770" }
+    ];
+
+    function losuj() {
+      const los = utwory[Math.floor(Math.random() * utwory.length)];
+      document.getElementById("wynik").innerHTML =
+        `${los.tytul}<br><a class="yt-link" href="${los.link}" target="_blank">▶️ Posłuchaj</a>`;
+    }
+  </script>
 </body>
 </html>
