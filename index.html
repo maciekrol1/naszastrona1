@@ -4,60 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dla Nas ❤️</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #fbecec, #ffe4f0);
+      font-family: 'Segoe UI', sans-serif;
+      background: url('img/f2bee413-ddbd-4404-84d4-f94decbbe918.jpg') no-repeat center center fixed;
+      background-size: cover;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      position: relative;
+      min-height: 100vh;
+      text-align: center;
     }
 
     .background-date {
       font-size: 64px;
       font-weight: bold;
-      color: #b3477d;
+      color: white;
+      text-shadow: 2px 2px 8px #000;
       margin-bottom: 40px;
     }
 
     .icon-container {
       display: flex;
-      gap: 40px;
+      gap: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .icon {
       width: 100px;
       height: 100px;
-      cursor: pointer;
       transition: transform 0.3s ease;
     }
 
     .icon:hover {
       transform: scale(1.1);
     }
-
-    body::before {
-      content: "";
-      position: absolute;
-      font-size: 300px;
-      color: rgba(255, 192, 203, 0.2);
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      pointer-events: none;
-    }
   </style>
 </head>
 <body>
   <div class="background-date">05.05</div>
   <div class="icon-container">
-    <a href="galeria.html"><img src="img/camera.png" alt="Galeria" class="icon" /></a>
-    <a href="kalendarz.html"><img src="img/calendar.png" alt="Kalendarz" class="icon" /></a>
-    <a href="muzyka.html"><img src="img/music.png" alt="Muzyka" class="icon" /></a>
+    <a href="galeria.html">
+      <img src="img/camera.png" alt="Galeria" class="icon" />
+    </a>
+    <a href="kalendarz.html">
+      <img src="img/calendar.png" alt="Kalendarz" class="icon" />
+    </a>
+    <a href="muzyka.html">
+      <img src="img/music.png" alt="Muzyka" class="icon" />
+    </a>
   </div>
 </body>
 </html>
